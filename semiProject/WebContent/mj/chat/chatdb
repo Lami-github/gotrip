@@ -1,0 +1,21 @@
+create table chatroom ( count number,
+                        room number,
+                        content varchar2(1000),
+                        id1 varchar2(20),
+                        id2 varchar2(20)
+                        );
+
+drop table chatroom purge;
+create sequence chatroom_c;
+
+
+insert into chatroom values(chatroom_c.NEXTVAL, 123, 'aa:aaafdsaf', 'aa' , 'bb');
+insert into chatroom values(chatroom_c.NEXTVAL, 123, 'bb:afsaaafdsaf', 'aa' , 'bb');
+insert into chatroom values(chatroom_c.NEXTVAL, 123, 'aa:fdsaf', 'aa' , 'bb');
+insert into chatroom values(chatroom_c.NEXTVAL, 123, 'bb:fasaasgsf', 'aa' , 'bb');
+
+select * from chatroom;
+
+
+select content from chatroom where room=123;
+commit;

@@ -1,0 +1,116 @@
+drop table tripreview purge;
+create table tripreview (   t_num number primary key,
+                            t_writer varchar2(50),
+                            t_subject varchar2(100),
+                            t_reg_date date,
+                            t_content varchar2(1000),
+                            t_readcount number,
+                            photo_id varchar2(100),
+                            t_htag varchar2(50)
+                        );
+
+insert into tripreview values(1,'bb','여행후기제목제목',sysdate,'내용내용내용내용',0,0,'테스트다');
+insert into tripreview values(2,'bb','여행후기제목제목',sysdate,'내용내용내용내용',0,0,'테스트다');
+insert into tripreview values(3,'bb','여행후기제목제목',sysdate,'내용내용내용내용',0,0,'테스트다');
+insert into tripreview values(4,'bb','여행후기제목제목',sysdate,'내용내용내용내용',0,0,'테스트다');
+
+commit;
+
+select * from tripreview;
+
+drop table tripreviewcomment purge;
+create table tripreviewcomment ( tc_num number primary key,
+                                 t_num number,
+                                 tc_writer varchar2(50),
+                                 tc_comment varchar2(500),
+                                 tc_reg_date date
+                                );
+
+insert into tripreviewcomment values(1,1,'bb','1여행후기댓글댓글댓글댓글',sysdate);
+insert into tripreviewcomment values(2,1,'bb','2여행후기댓글댓글댓글댓글',sysdate);
+insert into tripreviewcomment values(3,1,'bb','3여행후기댓글댓글댓글댓글',sysdate);
+insert into tripreviewcomment values(4,1,'bb','4여행후기댓글댓글댓글댓글',sysdate);
+
+commit;
+select * from tripreviewcomment;
+
+drop table traveler purge;
+create table traveler ( tr_num number primary key,
+                        tr_writer varchar2(50),
+                        tr_subject varchar2(100),
+                        tr_reg_date date,
+                        begin_country varchar2(50),
+                        arrived_country varchar2(50),
+                        begin_day date,
+                        arrived_day date,
+                        limit_money number,
+                        tr_content varchar2(1000),
+                        tr_readcount number,
+                        photo_id varchar2(100)
+                        );
+                        
+insert into traveler values(1,'bb','여행자제목제목',sysdate,'한국','일본',sysdate,sysdate,10000,'내용내용내용내용',0,0);
+insert into traveler values(2,'bb','여행자제목제목',sysdate,'한국','일본',sysdate,sysdate,10000,'내용내용내용내용',0,0);
+insert into traveler values(3,'bb','여행자제목제목',sysdate,'한국','일본',sysdate,sysdate,10000,'내용내용내용내용',0,0);
+insert into traveler values(4,'bb','여행자제목제목',sysdate,'한국','일본',sysdate,sysdate,10000,'내용내용내용내용',0,0);
+                        
+commit;
+select * from traveler;
+
+                      
+drop table traveler_comment purge;
+create table traveler_comment ( trc_num number primary key,
+                                tr_num number,
+                                trc_writer varchar2(50),
+                                trc_comment varchar2(500),
+                                trc_reg_date date
+                                );
+                                
+insert into traveler_comment values(1,1,'bb','1여행자응비땽댓글댓글',sysdate);
+insert into traveler_comment values(2,1,'bb','2여행자응비땽댓글댓글',sysdate);
+insert into traveler_comment values(3,1,'bb','3여행자응비땽댓글댓글',sysdate);
+insert into traveler_comment values(4,1,'bb','4여행자응비땽댓글댓글',sysdate);
+
+commit;
+select * from tripreview_comment;
+                                
+                                
+drop table buyer purge;
+create table buyer( b_num number primary key,
+                    b_writer varchar2(50),
+                    b_subject varchar2(100),
+                    b_country varchar2(50),
+                    b_item varchar(50),
+                    b_count number,
+                    b_price number,
+                    b_reg_date date,
+                    b_content varchar2(1000),
+                    b_readcount number,
+                    photo_id varchar2(100)
+                    );
+
+insert into buyer values(1,'bb','구매자제목제목','일본','응비땽',1,1000,sysdate,'내용내용내용내용',0,0);
+insert into buyer values(2,'bb','구매자제목제목','일본','응비땽',1,1000,sysdate,'내용내용내용내용',0,0);
+insert into buyer values(3,'bb','구매자제목제목','일본','응비땽',1,1000,sysdate,'내용내용내용내용',0,0);
+insert into buyer values(4,'bb','구매자제목제목','일본','응비땽',1,1000,sysdate,'내용내용내용내용',0,0);
+                      
+commit;
+select * from buyer;
+                    
+drop table buyer_comment purge;
+create table buyer_comment( bc_num number primary key,
+                            b_num number,
+                            bc_writer varchar2(50),
+                            bc_comment varchar2(500),
+                            bc_reg_date date
+                            );
+                            
+insert into buyer_comment values(1,1,'bb','1구매자응비땽댓글댓글',sysdate);
+insert into buyer_comment values(2,1,'bb','2구매자응비땽댓글댓글',sysdate);
+insert into buyer_comment values(3,1,'bb','3구매자응비땽댓글댓글',sysdate);
+insert into buyer_comment values(4,1,'bb','4구매자응비땽댓글댓글',sysdate);
+
+commit;
+select * from buyer_comment;     
+
+
